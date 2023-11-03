@@ -1,0 +1,768 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    cursor: pointer;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.start {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: black;
+    color: white;
+    position: fixed;
+    width: 100%;
+    z-index: 2100;
+}
+
+.left ul {
+    display: flex;
+    list-style: none;
+    font-size: 30px;
+}
+
+.left li {
+    padding: 20px;
+}
+
+.right ul {
+    display: flex;
+    list-style: none;
+    font-size: 30px;
+}
+
+.right li {
+    padding: 20px;
+}
+
+.end {
+    width: 100%;
+    height: 35vh;
+    background: black;
+    color: white;
+    text-align: center;
+    font-size: 40px;
+    position: relative;
+    top: 50px;
+}
+
+.end h2 {
+    padding: 30px;
+}
+
+.end h3 {
+    padding: 30px;
+}
+
+.left li:hover {
+    background-color: white;
+    color: black;
+}
+
+.right li:hover {
+    background-color: white;
+    color: black;
+}
+
+.splitview {
+    position: relative;
+    width: 100%;
+    min-height: 45vw;
+    overflow: hidden;
+}
+
+.panel {
+    position: absolute;
+    width: 100vw;
+    min-height: 45vw;
+    overflow: hidden;
+}
+
+.panel .content {
+    position: absolute;
+    width: 100vw;
+    min-height: 45vw;
+    color: #FFF;
+}
+
+.panel .description {
+    width: 25%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+.panel img {
+    box-shadow: 0 0 20px 20px rgba(0, 0, 0, 0.15);
+    width: 35%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.bottom {
+    background-color: rgb(44, 44, 44);
+    z-index: 1;
+}
+
+.bottom .description {
+    right: 5%;
+}
+
+.top {
+    background-color: rgb(103, 102, 102);
+    z-index: 2;
+    width: 50vw;
+    color: rgb(0, 0, 0);
+
+}
+
+.top .description {
+    left: 5%;
+}
+
+.handle {
+    height: 100%;
+    position: absolute;
+    display: block;
+    background-color: rgb(253, 171, 0);
+    width: 5px;
+    top: 0;
+    left: 50%;
+    z-index: 3;
+}
+
+.skewed .handle {
+    top: 50%;
+    transform: rotate(30deg) translateY(-50%);
+    height: 200%;
+    -webkit-transform-origin: top;
+    -moz-transform-origin: top;
+    transform-origin: top;
+}
+
+.skewed .top {
+    transform: skew(-30deg);
+    margin-left: -1000px;
+    width: calc(50vw + 1000px);
+}
+
+.skewed .top .content {
+    transform: skew(30deg);
+    margin-left: 1000px;
+}
+
+/* Responsive. */
+@media (max-width: 900px) {
+    body {
+        font-size: 75%;
+    }
+}
+
+
+
+
+input[type="radio"] {
+    display: none;
+}
+
+.js-slider {
+    position: relative;
+    width: 80%;
+    height: 100vh;
+    margin: 0 auto;
+}
+
+.js-slider_item {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    padding: 1rem 3rem;
+    opacity: 0;
+    visibility: hidden;
+    transform-origin: right center;
+    transform: translate3d(0%, 0%, 0) rotateY(30deg) scaleX(0.95);
+    transition: all 1s ease, transform 1s cubic-bezier(0.43, 0.28, 0.51, 1);
+}
+
+#s-1:checked~.js-slider .js-slider_item.img-1,
+#s-2:checked~.js-slider .js-slider_item.img-2,
+#s-3:checked~.js-slider .js-slider_item.img-3 {
+    opacity: 1;
+    visibility: visible;
+    transform-origin: left center;
+    transform: translate3d(0, 0, 0) rotateY(0deg) scaleX(1);
+}
+
+.js-slider_img {
+    width: 100%;
+    height: 60%;
+    position: relative;
+    overflow: hidden;
+}
+
+.c-img-w-full {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+    transform: translate3d(-50%, -50%, 0);
+}
+
+.c-img-h-full {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: 100%;
+    transform: translate3d(-50%, -50%, 0);
+}
+
+figcaption {
+    display: block;
+}
+
+.wo-h3 {
+    margin-top: 6rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e60012;
+}
+
+.wo-caption h3 {
+    margin-top: 6rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e60012;
+}
+
+.c-label {
+    display: inline-block;
+    color: #eee;
+    background-color: rgba(139, 0, 10, 0.9);
+    line-height: 1;
+    padding: 0.5em 0.9em;
+    margin-right: 0.5em;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.view-sm {
+    display: none;
+}
+
+.js-slider_nav {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 100%;
+    transform: translate3d(0, -50%, 0);
+}
+
+.js-slider_nav_item.prev {
+    left: 0;
+}
+
+.js-slider_nav_item.next {
+    right: 0;
+    transform: rotateY(180deg);
+}
+
+.js-slider_nav_item {
+    position: absolute;
+    display: none;
+    width: 4rem;
+    height: 4rem;
+    border: 1px solid #e60012;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.js-slider_nav_item:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 1rem;
+    top: 55%;
+    width: 1rem;
+    height: 1px;
+    background-color: #e60012;
+    transform-origin: left bottom;
+    transform: translate3d(0, -50%, 0) rotate(-45deg);
+    transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.js-slider_nav_item:hover {
+    transform: translate3d(-30%, 0, 0);
+}
+
+.js-slider_nav_item.next:hover {
+    transform: rotateY(180deg) translate3d(-30%, 0, 0);
+}
+
+.js-slider_nav_item:hover:before {
+    transform: translate3d(0, -50%, 0) rotate(-30deg);
+}
+
+.js-slider_nav_item:after {
+    content: "";
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    width: 2rem;
+    height: 1px;
+    background-color: #e60012;
+    transform: translate3d(-50%, -50%, 0);
+}
+
+#s-1:checked~.js-slider .js-slider_nav .s-nav-1,
+#s-2:checked~.js-slider .js-slider_nav .s-nav-2,
+#s-3:checked~.js-slider .js-slider_nav .s-nav-3 {
+    display: block;
+}
+
+.js-slider_indicator {
+    position: absolute;
+    left: 0;
+    top: 63%;
+    width: 100%;
+    text-align: center;
+}
+
+.js-slider-indi {
+    position: relative;
+    display: inline-block;
+    padding: 2rem;
+    cursor: pointer;
+}
+
+.js-slider-indi:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 1rem;
+    background: #e60012;
+    transform: translate3d(-50%, -50%, 0);
+}
+
+.js-slider-indi:hover:after {
+    transform: translate3d(-50%, -50%, 0) scale(1.5);
+    transition: 1s all cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+#s-1:checked~.js-slider .js-slider_indicator .indi-1:after,
+#s-2:checked~.js-slider .js-slider_indicator .indi-2:after,
+#s-3:checked~.js-slider .js-slider_indicator .indi-3:after {
+    transform: translate3d(-50%, -50%, 0) scale(2.5);
+}
+
+.container {
+    background: rgb(255, 255, 255);
+    position: relative;
+    height: 100vh;
+    width: 100%;
+}
+
+.slide-wrapper {
+    position: relative;
+    margin: 0 auto;
+    padding: 3em;
+    width: 40%;
+    height: 80%;
+    border-radius: 20px;
+    box-shadow: 0px 1px 2px 0px rgb(53, 53, 53);
+    overflow: hidden;
+}
+
+#slide-role {
+    background: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 400%;
+    height: 100%;
+    z-index: 100;
+    transition: left .5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    /* flex */
+    display: flex;
+}
+
+.slide {
+    width: 50%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+/* backgrounds */
+
+.slide-1 {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/7/72/Maps_of_the_Armenian_Empire_of_Tigranes.gif");
+}
+
+.slide-2 {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Arshakuni_Armenia_150-en.svg/1200px-Arshakuni_Armenia_150-en.svg.png");
+}
+
+.slide-3 {
+    background-image: url("https://armenian-history.com/wp-content/uploads/2012/01/Byzantine_Persian_Armenia_387-591.gif");
+}
+
+.slide-4 {
+    background-image: url("https://www.peopleofar.com/wp-content/uploads/The-empire-of-Tigranes-map.jpg");
+}
+
+
+.btn,
+.btn::after {
+    border-radius: 50%;
+    transition: all .5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.btn {
+    border: 1px solid rgba(0, 0, 0, 0.281);
+    background: rgb(255, 255, 255);
+    box-shadow: 0px 2px 2px rgba(56, 56, 56, 0.822);
+    position: absolute;
+    bottom: 12%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    transform: scale(1.1);
+    z-index: 1000;
+}
+
+.btn:nth-of-type(1) {
+    left: 38%;
+}
+
+.btn:nth-of-type(2) {
+    left: 45%;
+}
+
+.btn:nth-of-type(3) {
+    left: 52%;
+}
+
+.btn:nth-of-type(4) {
+    left: 59%;
+}
+
+.btn:hover {
+    transform: scale(1.4);
+}
+
+
+
+.btn::after {
+    content: "";
+    display: inline-block;
+    border: 1px solid white;
+    background: rgb(11, 185, 238);
+    width: 20px;
+    height: 20px;
+    margin: 3px 3px;
+    transform: scale(.5, .5);
+    box-shadow: 0px 1px 5px rgba(56, 56, 56, 0.822);
+}
+
+
+
+input[type="radio"]:checked#slide-2-trigger~div.slide-wrapper>div#slide-role {
+    left: -100%;
+}
+
+input[type="radio"]:checked#slide-3-trigger~div.slide-wrapper>div#slide-role {
+    left: -200%;
+}
+
+input[type="radio"]:checked#slide-4-trigger~div.slide-wrapper>div#slide-role {
+    left: -300%;
+}
+
+
+
+input[type="radio"]:checked+label.btn {
+    transform: scale(1.2);
+    border: 1px solid rgba(53, 53, 53, 0.308);
+}
+
+input[type="radio"]:checked+label.btn::after {
+    transform: scale(1.1, 1.1);
+    background: lightskyblue;
+}
+
+
+
+@media only screen and (max-width: 750px) {
+    .slide-wrapper {
+        width: 90%;
+        height: 100%;
+    }
+
+    .btn:nth-of-type(1) {
+        left: 93%;
+        bottom: 60%;
+    }
+
+    .btn:nth-of-type(2) {
+        left: 93%;
+        bottom: 50%;
+    }
+
+    .btn:nth-of-type(3) {
+        left: 93%;
+        bottom: 40%;
+    }
+
+    .btn:nth-of-type(4) {
+        left: 93%;
+        bottom: 30%;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .btn:nth-of-type(1) {
+        left: 91%;
+    }
+
+    .btn:nth-of-type(2) {
+        left: 91%;
+    }
+
+    .btn:nth-of-type(3) {
+        left: 91%;
+    }
+
+    .btn:nth-of-type(4) {
+        left: 91%;
+    }
+}
+
+.pen {
+    max-width: 635px;
+    width: 100%;
+    margin: 50px auto 0;
+    opacity: 0;
+    position: relative;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -ms-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+    -webkit-animation: 1s appear 1 forwards;
+    -moz-animation: 1s appear 1 forwards;
+    -o-animation: 1s appear 1 forwards;
+    animation: 1s appear 1 forwards;
+}
+
+.credit {
+    display: block;
+    max-width: 400px;
+    text-align: center;
+    margin: 150px auto 0;
+    padding: 0;
+    font-size: 0.8em;
+    color: #f0f0f0;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.9);
+}
+
+.credit p a,
+.credit a {
+    color: white;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.credit p a:hover,
+.credit a:hover,
+.credit p a:active,
+.credit a:active {
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0.4);
+    color: white;
+}
+
+.credit p a.button,
+.credit a.button {
+    padding: 6px 12px;
+    margin-top: 10px;
+    background: #000000;
+    border-radius: 3px;
+}
+
+.credit p a.button:hover,
+.credit a.button:hover {
+    background: #2b2b2b;
+}
+
+.credit p:last-of-type {
+    margin-bottom: 30px;
+}
+
+.stage {
+    max-width: 635px;
+    width: 100%;
+    height: 400px;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -ms-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
+
+.element {
+    background: green;
+    width: 202px;
+    height: inherit;
+    margin: 0 7px 0 0;
+    display: inline-block;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -ms-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+    -webkit-transform: translate3d(0, 0, 0);
+    -moz-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    -o-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+}
+
+.element.active {
+    width: 282px;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -ms-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+}
+
+.element.inactive {
+    width: 162px;
+    -webkit-transition: all 0.25s ease-in-out;
+    -moz-transition: all 0.25s ease-in-out;
+    -ms-transition: all 0.25s ease-in-out;
+    -o-transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease-in-out;
+    opacity: 0.4;
+}
+
+.element.franklin {
+    background: url('https://upload.wikimedia.org/wikipedia/commons/c/ca/Tiridates.jpg') 45% 0 no-repeat;
+    background-size: cover;
+}
+
+.element.michael {
+    background: url('https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/%D5%8F%D6%80%D5%A4%D5%A1%D5%BF_%D4%B3_%D5%84%D5%A5%D5%AE_%D4%B1%D6%80%D5%B7%D5%A1%D5%AF%D5%B8%D6%82%D5%B6%D5%AB.jpg/220px-%D5%8F%D6%80%D5%A4%D5%A1%D5%BF_%D4%B3_%D5%84%D5%A5%D5%AE_%D4%B1%D6%80%D5%B7%D5%A1%D5%AF%D5%B8%D6%82%D5%B6%D5%AB.jpg') 45% 0 no-repeat;
+    background-size: cover;
+}
+
+.element.trevor {
+    background: url('https://the-armenian-highland.org/wp-content/uploads/2022/08/%D5%8F%D6%80%D5%A4%D5%A1%D5%BF-III-%D0%A2%D1%80%D0%B4%D0%B0%D1%82-III-Trdat-III.jpg') 45% 0 no-repeat;
+    background-size: cover;
+}
+
+.element:last-of-type {
+    margin: 0;
+}
+
+@media all and (min-width: 900px) {
+    .pen {
+        max-width: 890px;
+    }
+
+    .element {
+        width: 286px;
+    }
+
+    .element.inactive {
+        width: 246px;
+    }
+
+    .element.active {
+        width: 366px;
+    }
+
+    .stage {
+        max-width: 890px;
+        height: 600px;
+    }
+}
+
+@media all and (max-width: 660px) {
+    .pen {
+        max-width: 335px;
+    }
+
+    .element {
+        width: 101px;
+    }
+
+    .element.inactive {
+        width: 61px;
+    }
+
+    .element.active {
+        width: 181px;
+    }
+
+    .stage {
+        max-width: 335px;
+    }
+}
+
+@-webkit-keyframes appear {
+    15% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes appear {
+    15% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes appear {
+    15% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes appear {
+    15% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
